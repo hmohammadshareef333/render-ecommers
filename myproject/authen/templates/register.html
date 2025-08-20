@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+       <div class="credid">
+            <div class="regfrom">
+            <h3>this is register page</h3>
+
+            <form action="" method="POST" >
+
+                {% csrf_token %}
+
+                <label for="">Firstname</label>
+                <input type="text" name="firstname" > <br>
+
+                <label for="">Lastname</label>
+                <input type="text" name="lastname" > <br>
+
+                <label for="">email</label>
+                <input type="email" name="email" > <br>
+
+                <label for="">Username</label>
+                <input type="text" name="username" > <br>
+
+                <label for="">Password</label>
+                <input type="password" name="password" required >  <br>
+
+                <input type="submit" name="" id="">
+
+            </form>
+        </div>
+    </div>
+
+
+{% endblock content %}

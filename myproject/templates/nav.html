@@ -1,0 +1,45 @@
+
+<nav>
+    <div class="logo">ShopSphere</div>
+    <div class="links">
+        {% if request.user.is_authenticated %}
+            <form action="" class="search" >
+                <input type="text" placeholder="search..." name="query" >
+                <input type="submit" value="search">
+            </form>
+            <a href="{% url 'home' %}">HOME</a>
+            <a href="{% url 'cart' %}">CART({{cart_products_count}})</a>
+            <a href="{% url 'profile' %}">PROFILE({{request.user}})</a>
+            <a href="">SUPPORT</a>
+            <a href="">KNOW US</a>
+            <a href="{% url 'logout_' %}">LOGOUT</a>
+        
+            {% else %}
+        
+                    {% if login_nav %}
+                        <a href="{% url 'home' %}">HOME</a> 
+                        <a href="{% url 'login_' %}">LOGIN</a>
+                        <a href="{% url 'register' %}">REGISTER</a>
+                        <a href="">KNOW US</a>
+                        <a href="">SUPPORT</a>            
+
+
+                    {% else %}
+                            <form action="" class="search" >
+                                <input type="text" placeholder="search..." name="query" >
+                                <input type="submit" value="search">
+                            </form>
+                            <form action="">
+                                <input class="trending" type="submit" name="trending" value="Trending">
+                            </form>
+                            <form action="">
+                                <input class="sale" type="submit" name="sale" value="Sale">
+                            </form>
+                            <!-- <a href="{% url 'home' %}">HOME</a>   -->
+                            <a href="{% url 'login_' %}">LOGIN</a>
+                            <a href="">KNOW US</a>
+                            <a href="">SUPPORT</a>            
+                    {% endif %}
+            {% endif  %}
+    </div>
+</nav>

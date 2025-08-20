@@ -1,0 +1,60 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+<center>
+
+    {% if category_nav %}
+    <div class="categories">
+        <form action="">
+            <input class="trending" type="submit" name="trending" value="Trending">
+        </form>
+
+        <form action="">
+            <input class="sale" type="submit" name="sale" value="Sale">
+        </form>
+        <form action="" class="categories_form" >
+
+
+            {% for i in product_categories %}
+            <input type="submit" name="category_query" value="{{i}}"  id="">
+            {% endfor %}
+            <a href="{% url 'home' %}">All_Products</a>
+        </form>       
+    </div>
+
+    {% endif %}
+
+    {% if trend %}
+            <h1 class="">TRENDING PRODUCTS</h1>
+            <h1 class="trendhead">TRENDING PRODUCTS</h1>
+
+    {% elif sale %}
+    <h1 class=""> flat 10% off on sale Products</h1>
+    <h1 class="trendhead"> flat 10% off on sale Products</h1>
+
+    {% endif %}
+
+
+
+    <div class="home">  
+
+
+        {% for i in all_products %}
+            <div class="cards">
+                <img src="{{i.image.url}}" alt="">
+                <!-- <h2>category = {{i.category}}</h2> -->
+                <h2>  {{i.name}}</h2>
+                <!-- <h2>category = {{i.desc}}</h2> -->
+                <h2>Price  = RS.{{i.price}}/- </h2>
+
+                <div class="cards_links">
+                    <a href="">Details</a>
+                    <a href="{% url 'addtocart' i.id %}">addtocart</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</center>
+{% endblock content %}

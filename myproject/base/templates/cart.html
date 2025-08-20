@@ -1,0 +1,49 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+        <center>
+            <h3>cart </h3>
+
+            <div class="cart">
+
+                <table style="border: 2px solid black;" >
+                        <th>
+                            <tr>
+                                <td>category</td>
+                                <td>name</td>
+                                <td>desc</td>
+                                <td>price</td>
+                                <td>quantity</td>
+                                <td>totalprice</td>
+                                <td>remove</td>
+                            </tr>
+                        </th>
+
+                    
+                    {% for i in cart_products %}
+                            <tbody style="border: 2px solid black;">
+                                <tr>
+                                    <td>{{i.category}}</td>
+                                    <td> {{i.name}}</td>
+                                    <td>{{i.desc}}</td>
+                                    <td>{{i.price}}</td>
+                                    <td>{{i.quantity}}</td>
+                                    <td>{{i.totalprice}}</td>
+                                    <td><a href="">remove</a></td>
+                                </tr>
+                            </tbody>
+                  
+                    {% endfor %}
+                </table>
+
+                <h2>Total Amount == {{cart_total_price}}</h2><br> <h2>Total Products =={{cart_products_count}}</h2> <br>
+                <a href="">Checkout</a>
+            </div>
+    
+
+        </center>
+
+
+{% endblock content %}
